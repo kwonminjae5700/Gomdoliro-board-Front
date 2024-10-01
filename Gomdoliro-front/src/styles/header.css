@@ -1,5 +1,52 @@
 header {
-    background-color : #5A79AE;
-    width : 100vw;
+    display : inline-flex;
+    width : 1440px;
     height : 12vh;
+    border-bottom : 1px solid #B3B3B3;
+    padding : 0vw 10vw;
+    justify-content : space-between;
+    align-items : center;
+    box-sizing : border-box;    
+}
+
+header > h2 {
+    font-size : 2rem;
+}
+
+.search_box {
+    display : inline-flex;
+    width : 30vw;
+    height : 5vh;
+    padding : 0vh 1vw;
+    border-radius : 0.2rem;
+    border : 1px solid #000000;
+    align-items : center;
+    box-sizing : border-box;
+}
+
+.search_box > input {
+    size : 100;
+    border : none;
+    font-size : 1rem;
+    color : #999999;
+    margin-right : 14vw;
+}
+
+.search_box > input:focus {
+    outline : none;
+}
+
+.user_list {
+    display : inline-flex;
+    gap : 0.8vw;
+    align-items : center;
+}
+
+.user_list > h3 {
+    font-weight : 500;
+}
+
+.user_ion {
+    width : 4vw;
+    height : 6.8vh;
 }
