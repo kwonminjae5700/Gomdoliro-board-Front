@@ -1,10 +1,13 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import '../styles/header.css'
 
 const Header = () => {
+    const nav = useNavigate()
+
     return (
         <header>
-            <h2>BamGallery</h2>
+            <h2 onClick={()=>{nav("/")}}>BamGallery</h2>
             <span className="search_box">
                 <label htmlFor="text"/>
                 <input type="text" placeholder="검색어를 입력하세요"/>
