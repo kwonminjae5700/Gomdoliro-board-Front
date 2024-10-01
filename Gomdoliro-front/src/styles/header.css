@@ -4,13 +4,17 @@ header {
     height : 12vh;
     border-bottom : 1px solid #B3B3B3;
     padding : 0vw 10vw;
-    justify-content : space-between;
     align-items : center;
     box-sizing : border-box;    
 }
 
 header > h2 {
     font-size : 2rem;
+    margin-right : 14vw;
+}
+
+header > h2:hover {
+    cursor : pointer;
 }
 
 .search_box {
@@ -22,6 +26,7 @@ header > h2 {
     border : 1px solid #000000;
     align-items : center;
     box-sizing : border-box;
+    margin-right : 6vw;
 }
 
 .search_box > input {
@@ -30,6 +35,10 @@ header > h2 {
     font-size : 1rem;
     color : #999999;
     margin-right : 14vw;
+}
+
+.search_box > img:hover {
+    cursor : pointer;
 }
 
 .search_box > input:focus {
