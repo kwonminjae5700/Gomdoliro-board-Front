@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Header from './components/Header.jsx'
+import MainPage from './pages/MainPage'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
         <Routes>
-            <Route path="/" element={<Header />}/>
+            <Route path="/" element={<MainPage />}/>
         </Routes>
     </BrowserRouter>
 )
