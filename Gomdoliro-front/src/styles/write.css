@@ -1,0 +1,65 @@
+.input_box {
+    display : inline-flex;
+    width : 68vw;
+    height : 6vw;
+    margin-top : -2vw;
+    align-items : center;
+    padding : 0vh 2vw;
+    border-bottom : 1px solid #808080;
+}
+
+.input_box > input {
+    color : #B3B3B3;
+    width : 70vw;
+    height : 5vh;
+    font-size : 2rem;
+    font-weight : 500;
+    border : none;
+}
+
+.input_box > input:focus {
+    outline : none;
+}
+
+textarea {
+    resize : none;
+    border : none;
+    width : 68vw;
+    height : 50vh;
+    margin : 2vh 2vw;
+    color : #B3B3B3;
+    font-size : 1.4rem;
+}
+
+textarea:focus {
+    outline : none;
+}
+
+.underbar {
+    display : inline-flex;
+    width : 100vw;
+    height : 11.5vh;
+    background-color : #E6E6E6;
+    align-items : center;
+    padding : 0vh 4vw;
+    box-sizing : border-box;
+}
+
+.write_finish_button {
+    background-color : #1F8BFF;
+    color : #fff;
+    width : 8vw;
+    height : 6vh;
+    border : none;
+    border-radius : 0.3rem;
+    font-size : 1.2rem;
+    margin-right : 2vw;
+} 
+
+.write_finish_button:hover {
+    cursor : pointer;
+}
+
+.buttons {
+    margin-left : auto;
+}
