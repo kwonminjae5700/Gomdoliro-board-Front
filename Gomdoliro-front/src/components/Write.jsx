@@ -8,7 +8,7 @@ const Write = () => {
                 <label htmlFor="text"/>
                 <input type="text" placeholder="제목을 입력하세요"/>
             </div>
-            <textarea name="content"/>
+            <textarea name="content" placeholder="내용을 입력하세요"/>
         </main>
     )
 }
