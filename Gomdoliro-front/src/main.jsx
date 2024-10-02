@@ -13,7 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Routes>
             <Route path="/" element={<MainPage />}/>
             <Route path="/write" element={<WritePage />}/>
-            <Route path="read" element={<ReadPage />}/>
+            <Route path="/read/:id" element={<ReadPage />}/>
         </Routes>
     </BrowserRouter>
 )
