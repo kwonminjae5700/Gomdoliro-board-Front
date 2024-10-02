@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../styles/button.css'
 
-const Button = ({ text, buttonColor }) => {
+const Button = ({ text, buttonColor, onSubmit}) => {
     const nav = useNavigate()
 
     const buttonStyle = {
@@ -13,8 +13,16 @@ const Button = ({ text, buttonColor }) => {
         })
     }
 
+    const buttonOnClick = () => {
+        if(onSubmit) {
+            onSubmit()
+        } else {
+            nav("/write")
+        }
+    }
+
     return (
-        <button className="write_button" onClick={()=>{nav("/write")}} style={buttonStyle}>{text}</button>
+        <button className="write_button" onClick={buttonOnClick} style={buttonStyle}>{text}</button>
     )
 }
 
