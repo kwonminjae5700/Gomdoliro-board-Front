@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from '../components/Button'
-import PostBox from '../components/PostBox'
+import Posts from '../components/Posts'
 import '../styles/main.css'
 
 const Main = () => {
@@ -22,7 +22,7 @@ const Main = () => {
                     <div className="write_data">작성일</div>
                     <div className="reco">추천</div>
                 </div>
-                <PostBox />
+                <Posts />
             </section>
         </main>
     )

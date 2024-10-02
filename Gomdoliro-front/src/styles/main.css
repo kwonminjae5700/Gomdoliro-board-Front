@@ -38,6 +38,15 @@ main {
     font-weight : 550;
 }
 
+.section_body {
+    display : flex;
+    border-bottom : 1px solid #999999;
+    flex-direction : row;
+    text-align : center;
+    padding : 2vh;
+    box-sizing : border-box;
+}
+
 .no {
     width : 5vw;
 }
