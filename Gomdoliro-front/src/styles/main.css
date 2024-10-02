@@ -47,6 +47,10 @@ main {
     box-sizing : border-box;
 }
 
+.section_body:hover {
+    cursor : pointer;
+}
+
 .no {
     width : 5vw;
 }
