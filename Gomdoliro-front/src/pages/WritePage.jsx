@@ -1,11 +1,13 @@
 import {React, useState} from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 import Write from '../components/Write'
 import Write_underbar from '../components/Write_underbar'
 
 const WritePage = () => {
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
+    const nav = useNavigate()
 
     const post = async () => {
         try {
@@ -14,8 +16,10 @@ const WritePage = () => {
                 content
             })
             console.log('request success')
+            alert("작성에 성공하셨습니다!")
             setTitle('')
             setContent('')
+            nav("/")
         } catch (error) {
             console.error('Error : ', error)
         }
