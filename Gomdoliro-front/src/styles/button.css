@@ -1,0 +1,14 @@
+.write_button {
+    background-color : #1F8BFF;
+    color : #fff;
+    width : 8vw;
+    height : 6vh;
+    border : none;
+    border-radius : 0.5rem;
+    font-size : 1.2rem;
+    margin-left : 2vw;
+}
+
+.write_button:hover {
+    cursor : pointer;
+}

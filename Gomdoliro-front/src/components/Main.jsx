@@ -1,9 +1,9 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import Button from '../components/Button'
+import PostBox from '../components/PostBox'
 import '../styles/main.css'
 
 const Main = () => {
-    const nav = useNavigate()
 
     return (
         <main>
@@ -12,7 +12,7 @@ const Main = () => {
                     <div>작성일</div>
                     <div>인기글</div>
                 </span>
-                <button className="write_button" onClick={()=>{nav("/write")}}>새 글 작성</button>
+                <Button text={"새 글 작성"} buttonColor={"#1F8BFF"}/>
             </div>
             <section>
                 <div className="section_title">
@@ -22,6 +22,7 @@ const Main = () => {
                     <div className="write_data">작성일</div>
                     <div className="reco">추천</div>
                 </div>
+                <PostBox />
             </section>
         </main>
     )

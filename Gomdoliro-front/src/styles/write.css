@@ -45,21 +45,6 @@ textarea:focus {
     box-sizing : border-box;
 }
 
-.write_finish_button {
-    background-color : #1F8BFF;
-    color : #fff;
-    width : 8vw;
-    height : 6vh;
-    border : none;
-    border-radius : 0.3rem;
-    font-size : 1.2rem;
-    margin-right : 2vw;
-} 
-
-.write_finish_button:hover {
-    cursor : pointer;
-}
-
 .buttons {
     margin-left : auto;
 }
