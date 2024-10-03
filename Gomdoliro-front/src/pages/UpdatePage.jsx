@@ -26,7 +26,7 @@ const UpdatePage = () => {
 
     const update = async () => {
         try {
-            const request = await axios.put('https://port-0-gomdoliro-board-back-m1qhzohka7273c65.sel4.cloudtype.app/board', {
+            const response = await axios.put('https://port-0-gomdoliro-board-back-m1qhzohka7273c65.sel4.cloudtype.app/board', {
                 id,
                 title,
                 content
