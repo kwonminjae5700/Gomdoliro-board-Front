@@ -1,21 +1,9 @@
 import React from 'react'
+import App from './App'
 import ReactDOM from 'react-dom/client'
-import Header from './components/Header'
-import MainPage from './pages/MainPage'
-import WritePage from './pages/WritePage'
-import ReadPage from './pages/ReadPage'
-import UpdatePage from './pages/UpdatePage'
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-
-    <BrowserRouter>
-        <Header />
-        <Routes>
-            <Route path="/" element={<MainPage />}/>
-            <Route path="/write" element={<WritePage />}/>
-            <Route path="/read/:id" element={<ReadPage />}/>
-            <Route path="/update/:id" element={<UpdatePage />}/>
-        </Routes>
-    </BrowserRouter>
+    <App />
 )
