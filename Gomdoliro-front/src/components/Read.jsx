@@ -3,6 +3,7 @@ import {useParams, useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import Read_button from '../components/Read_button'
 import Modal from '../components/Modal'
+import Read_details from '../components/Read_details'
 import '../styles/read.css'
 
 const Read = () => {
@@ -58,6 +59,7 @@ const Read = () => {
             <div className="read_section">
                 <p>{post.content}</p>
             </div>
+            <Read_details />
         </main>
     )
 }

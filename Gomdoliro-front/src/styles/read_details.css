@@ -1,0 +1,56 @@
+.read_details {
+    display: flex;
+    width: 58vw;
+    height: 25vh;
+    align-items: center;
+    padding: 0vh 5vw;
+    border-bottom: 1px solid #808080;
+    gap : 32vw;
+}
+
+.reco_container { 
+    display: flex; 
+    gap: 1vw; 
+}
+
+.reco {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vh;
+}
+
+.reco > h4 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.reco > h3 {
+    font-size: 2rem;
+}
+
+.reco_info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1vh;
+}
+
+.reco_info > h4 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.reco_info > button {
+    background-color : #fff;
+    width : 8vw;
+    height : 4vh;
+    border : 1px solid #000;
+    border-radius : 0.4rem;
+}
+
+.reco_info > button:hover {
+    cursor : pointer;
+}
