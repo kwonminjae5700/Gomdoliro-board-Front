@@ -1,0 +1,29 @@
+.ReadBackground {
+    position : fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color : rgba(0, 0, 0, 0.25)
+}
+
+.modal_box {
+    position : fixed;
+    display : flex;
+    width : 42vw;
+    height : 50vh;
+    border-radius : 1rem;
+    background-color : #fff;
+    left : 30vw;
+    top : 14vw;
+    z-index : 1000;
+    align-items : center;
+    justify-content : center;
+    flex-direction : column;
+    gap : 4vh;
+}
+
+.modal_box > h2 {
+    font-size : 2rem;
+    display : flex;
+}

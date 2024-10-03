@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styles/button.css'
 
-const Read_button = ({color, text, toUpdate}) => {
+const Read_button = ({color, text, button_work}) => {
 
     const buttonStyle = {
         backgroundColor : color
@@ -10,7 +10,7 @@ const Read_button = ({color, text, toUpdate}) => {
         <button 
             className="read_button" 
             style={buttonStyle} 
-            onClick={toUpdate}>
+            onClick={button_work}>
         {text}</button>
     )
 }
