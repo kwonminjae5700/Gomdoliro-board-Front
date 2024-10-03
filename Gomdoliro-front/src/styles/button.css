@@ -12,3 +12,17 @@
 .write_button:hover {
     cursor : pointer;
 }
+
+.read_button {
+    color : #FFF;
+    width : 6.4vw;
+    height : 5vh;
+    font-size : 1.2rem;
+    border : none;
+    border-radius : 0.5rem;
+    margin-left : 1vw;
+}
+
+.read_button:hover {
+    cursor : pointer;
+}

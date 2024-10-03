@@ -1,6 +1,7 @@
 import {React, useEffect, useState} from 'react'
 import {useParams} from 'react-router-dom'
 import axios from 'axios'
+import Read_button from '../components/Read_button'
 import '../styles/read.css'
 
 const Read = () => {
@@ -28,6 +29,10 @@ const Read = () => {
         <main>
             <div className="read_head">
                 <h1>{post.title}</h1>
+                <span>
+                    <Read_button color={"#999999"} text={"수정"} />
+                    <Read_button color={"#FF1F1F"} text={"삭제"} />
+                </span>
             </div>
             <div className="read_section">
                 <p>{post.content}</p>
