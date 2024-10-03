@@ -4,6 +4,7 @@ import Header from './components/Header'
 import MainPage from './pages/MainPage'
 import WritePage from './pages/WritePage'
 import ReadPage from './pages/ReadPage'
+import UpdatePage from './pages/UpdatePage'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -14,6 +15,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path="/" element={<MainPage />}/>
             <Route path="/write" element={<WritePage />}/>
             <Route path="/read/:id" element={<ReadPage />}/>
+            <Route path="/update/:id" element={<UpdatePage />}/>
         </Routes>
     </BrowserRouter>
 )
