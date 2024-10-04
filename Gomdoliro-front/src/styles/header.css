@@ -33,8 +33,12 @@ header > h2:hover {
     size : 100;
     border : none;
     font-size : 1rem;
-    color : #999999;
+    color : #000;
     margin-right : 14vw;
+}
+
+.search_box > input::placeholder {
+    color : #999999;
 }
 
 .search_box > img:hover {
