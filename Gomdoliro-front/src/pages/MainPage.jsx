@@ -1,10 +1,10 @@
 import React from 'react'
 import Main from '../components/Main'
 
-const MainPage = () => {
+const MainPage = ({searchValue}) => {
     return (
         <>
-            <Main />
+            <Main searchValue={searchValue}/>
         </>
     )
 }

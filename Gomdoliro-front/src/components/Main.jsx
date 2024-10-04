@@ -3,7 +3,7 @@ import Button from '../components/Button'
 import Posts from '../components/Posts'
 import '../styles/main.css'
 
-const Main = () => {
+const Main = ({searchValue}) => {
 
     return (
         <main>
@@ -22,7 +22,7 @@ const Main = () => {
                     <div className="write_data">작성일</div>
                     <div className="reco">추천</div>
                 </div>
-                <Posts />
+                <Posts searchValue={searchValue}/>
             </section>
         </main>
     )

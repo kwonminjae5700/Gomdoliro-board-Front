@@ -1,8 +1,8 @@
-import React from 'react'
+import {React, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../styles/header.css'
 
-const Header = () => {
+const Header = ({search_Header, setSearch_Header}) => {
     const nav = useNavigate()
 
     return (
@@ -10,7 +10,12 @@ const Header = () => {
             <h2 onClick={()=>{nav("/")}}>BamGallery</h2>
             <span className="search_box">
                 <label htmlFor="text"/>
-                <input type="text" placeholder="검색어를 입력하세요"/>
+                <input 
+                    type="text" 
+                    placeholder="검색어를 입력하세요"
+                    value={search_Header}
+                    onChange={(e) => setSearch_Header(e.target.value)}
+                />
                 <img src="src/assets/search.png" alt="search"/>
             </span>
             <span className="user_list">
