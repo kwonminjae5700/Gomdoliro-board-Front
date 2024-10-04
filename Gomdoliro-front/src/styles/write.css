@@ -9,12 +9,16 @@
 }
 
 .input_box > input {
-    color : #888;
+    color : #000;
     width : 70vw;
     height : 5vh;
     font-size : 2rem;
     font-weight : 500;
     border : none;
+}
+
+.input_box > input::placeholder {
+    color : #888;
 }
 
 .input_box > input:focus {
@@ -27,8 +31,13 @@ textarea {
     width : 68vw;
     height : 50vh;
     margin : 2vh 2vw;
-    color : #B3B3B3;
+    color : #000;
     font-size : 1.4rem;
+    font-weight: 400;
+}
+
+textarea::placeholder {
+    color : #B3B3B3;
 }
 
 textarea:focus {
