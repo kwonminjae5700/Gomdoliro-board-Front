@@ -21,4 +21,5 @@
     border-bottom : 1px solid #808080;
     padding : 2vh 0vw;
     box-sizing : border-box;
+    white-space: pre-wrap;
 }
