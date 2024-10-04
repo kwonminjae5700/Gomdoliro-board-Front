@@ -33,7 +33,7 @@
 
         return (
             <>
-                {filteredValue.map((post) => (
+                {filteredValue.slice().reverse().map((post) => (
                     <Post key={post.id} post={post}/>
                 ))}
             </>
