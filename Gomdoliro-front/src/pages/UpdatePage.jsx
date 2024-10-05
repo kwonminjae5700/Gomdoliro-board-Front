@@ -41,29 +41,19 @@ const UpdatePage = () => {
         }
     }
 
-    const UpdateTitleChange = (e) => {
-        setUpdate_title(e.target.value)
-    }
-
-    const UpdateContentChange = (e) => {
-        setUpdate_content(e.target.value)
-    }
-
-    const UpdateSubmit = () => {
-        if(title.length === 0) alert("제목을 입력하세요")
-        else if(content.length === 0) alert("내용을 입력하세요")
-        else update()
-    }
-
     return (
         <>
             <Update 
                 title={title}
-                changeTitle={UpdateTitleChange}
+                changeTitle={(e) => setUpdate_title(e.target.value)}
                 content={content}
-                changeContent={UpdateContentChange}
+                changeContent={(e) => setUpdate_content(e.target.value)}
             />
-            <Write_underbar onSubmit={UpdateSubmit}/>
+            <Write_underbar onSubmit={() => {
+                if(title.length === 0) alert("제목을 입력하세요")
+                else if(content.length === 0) alert("내용을 입력하세요")
+                else update()
+            }}/>
         </>
     )
 }
