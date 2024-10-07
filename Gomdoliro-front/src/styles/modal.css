@@ -10,8 +10,8 @@
 .modal_box {
     position : fixed;
     display : flex;
-    width : 42vw;
-    height : 50vh;
+    width : 40vw;
+    height : 46vh;
     border-radius : 1rem;
     background-color : #fff;
     left : 30vw;
