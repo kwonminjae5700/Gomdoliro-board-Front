@@ -22,4 +22,5 @@
     padding : 2vh 0vw;
     box-sizing : border-box;
     white-space: pre-wrap;
+    line-height: normal;
 }
