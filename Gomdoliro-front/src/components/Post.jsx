@@ -10,7 +10,7 @@ const Post = ({post}) => {
             <div className="no">{post.id}</div>
             <div className="title">{post.title}</div>
             <div className="writer">kwon5700</div>
-            <div className="write_data">2008.05.28</div>
+            <div className="write_data">{post.date}</div>
             <div className="reco">13</div>
         </div>
     )

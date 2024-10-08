@@ -7,7 +7,7 @@ const Header = ({search_Header, setSearch_Header}) => {
 
     return (
         <header>
-            <h2 onClick={()=>{nav("/")}}>BamGallery</h2>
+            <h2 onClick={()=>{nav("/main")}}>BamGallery</h2>
             <span className="search_box">
                 <label htmlFor="text"/>
                 <input 

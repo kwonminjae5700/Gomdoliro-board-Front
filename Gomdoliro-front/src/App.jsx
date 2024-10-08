@@ -6,22 +6,26 @@ import WritePage from './pages/WritePage'
 import ReadPage from './pages/ReadPage'
 import UpdatePage from './pages/UpdatePage'
 import LoginPage from './pages/LoginPage'
+import SignupPage from './pages/SignupPage'
 
 const AppContent = () => {
     const [searchValue, setSearch] = useState('')
     const location = useLocation()
 
+    const hideHeader = location.pathname === '/' || location.pathname === '/signup'
+
     return (
         <>
-            {location.pathname !== '/login' && (
+            {!hideHeader && (
                 <Header search_Header={searchValue} setSearch_Header={setSearch} />
             )}
             <Routes>
-                <Route path="/" element={<MainPage searchValue={searchValue} />} />
+                <Route path="/" element={<LoginPage />} />
+                <Route path="/main" element={<MainPage searchValue={searchValue} />} />
                 <Route path="/write" element={<WritePage />} />
                 <Route path="/read/:id" element={<ReadPage />} />
                 <Route path="/update/:id" element={<UpdatePage />} />
-                <Route path="/login" element={<LoginPage />} />
+                <Route path="/signup" element={<SignupPage />}/>
             </Routes>
         </>
     )
