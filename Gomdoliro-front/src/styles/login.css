@@ -56,6 +56,7 @@
 
 .login-input > input {
     color : #000;
+    width : 30vw;
 }
 
 .login-input > input:focus {
