@@ -19,7 +19,7 @@ const WritePage = () => {
             alert("작성에 성공하셨습니다!")
             setTitle('')
             setContent('')
-            nav("/")
+            nav("/main")
         } catch (error) {
             console.error('Error : ', error)
         }
