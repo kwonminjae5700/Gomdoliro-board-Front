@@ -18,7 +18,7 @@ const Read_details = () => {
             </span>
 
             <span className="reco_info">
-                <h4>작성자 : Jin_venus08</h4>
+                <h4>Jin_venus08</h4>
                 <button>팔로우</button>
             </span>
         </div>
