@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import '../styles/login.css'
 
-const LoginPage = () => {
+const LoginPage = ({setUserLogin}) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const nav = useNavigate()
@@ -15,6 +15,7 @@ const LoginPage = () => {
                 password
             })
 
+            setUserLogin(email)
             setEmail('')
             setPassword('')
             

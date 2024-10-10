@@ -2,7 +2,7 @@ import {React, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../styles/header.css'
 
-const Header = ({search_Header, setSearch_Header}) => {
+const Header = ({search_Header, setSearch_Header, userLogin}) => {
     const nav = useNavigate()
 
     return (
@@ -21,7 +21,7 @@ const Header = ({search_Header, setSearch_Header}) => {
             <span className="user_list">
                 <h3>내 게시물</h3>
                 <img src="src/assets/user_line.png" className="user_line" alt="user_line"/>
-                <h3>Jin_venus08</h3>
+                <h3>{userLogin}</h3>
                 <img src="src/assets/user_icon.png" className="user_ion" alt="user_icon"/>
             </span>
         </header>

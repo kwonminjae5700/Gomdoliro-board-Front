@@ -9,6 +9,7 @@ import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
 
 const AppContent = () => {
+    const [userLogin, setUserLogin] = useState('')
     const [searchValue, setSearch] = useState('')
     const location = useLocation()
 
@@ -17,10 +18,14 @@ const AppContent = () => {
     return (
         <>
             {!hideHeader && (
-                <Header search_Header={searchValue} setSearch_Header={setSearch} />
+                <Header 
+                    search_Header={searchValue} 
+                    setSearch_Header={setSearch} 
+                    userLogin={userLogin}
+                />
             )}
             <Routes>
-                <Route path="/" element={<LoginPage />} />
+                <Route path="/" element={<LoginPage setUserLogin={setUserLogin}/>} />
                 <Route path="/main" element={<MainPage searchValue={searchValue} />} />
                 <Route path="/write" element={<WritePage />} />
                 <Route path="/read/:id" element={<ReadPage />} />
