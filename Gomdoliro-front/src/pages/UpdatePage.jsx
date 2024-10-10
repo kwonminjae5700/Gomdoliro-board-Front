@@ -35,7 +35,7 @@ const UpdatePage = () => {
             alert("수정에 성공하셨습니다!")
             setUpdate_title('')
             setUpdate_content('')
-            nav("/")
+            nav("/main")
         } catch(error) {
             console.error('Error : ', error)
         }
