@@ -4,16 +4,18 @@ import { useNavigate } from 'react-router-dom'
 import Write from '../components/Write'
 import Write_underbar from '../components/Write_underbar'
 
-const WritePage = () => {
+const WritePage = ({userLogin}) => {
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
+    const [writer, setWriter] = useState(userLogin)
     const nav = useNavigate()
 
     const post = async () => {
         try {
             const response = await axios.post('https://port-0-gomdoliro-board-back-m1qhzohka7273c65.sel4.cloudtype.app/board' , {
                 title,
-                content
+                content,
+                writer
             })
             console.log('request success')
             alert("작성에 성공하셨습니다!")

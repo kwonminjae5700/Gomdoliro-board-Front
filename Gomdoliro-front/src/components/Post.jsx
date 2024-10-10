@@ -9,7 +9,7 @@ const Post = ({post}) => {
         <div className="section_body" onClick={() => {nav(`/read/${post.id}`)}}>
             <div className="no">{post.id}</div>
             <div className="title">{post.title}</div>
-            <div className="writer">kwon5700</div>
+            <div className="writer">{post.writer}</div>
             <div className="write_data">{post.date}</div>
             <div className="reco">13</div>
         </div>

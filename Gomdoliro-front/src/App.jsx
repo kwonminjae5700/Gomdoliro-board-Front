@@ -27,7 +27,7 @@ const AppContent = () => {
             <Routes>
                 <Route path="/" element={<LoginPage setUserLogin={setUserLogin}/>} />
                 <Route path="/main" element={<MainPage searchValue={searchValue} />} />
-                <Route path="/write" element={<WritePage />} />
+                <Route path="/write" element={<WritePage userLogin={userLogin}/>} />
                 <Route path="/read/:id" element={<ReadPage />} />
                 <Route path="/update/:id" element={<UpdatePage />} />
                 <Route path="/signup" element={<SignupPage />}/>
