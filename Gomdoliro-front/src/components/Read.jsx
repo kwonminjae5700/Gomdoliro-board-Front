@@ -60,7 +60,7 @@ const Read = () => {
             <div className="read_section">
                 <p>{post.content}</p>
             </div>
-            <Read_details />
+            <Read_details writer={post.writer}/>
             <Comment />
         </main>
     )
