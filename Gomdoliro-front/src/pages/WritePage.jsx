@@ -27,14 +27,6 @@ const WritePage = ({userLogin}) => {
         }
     }
 
-    const handleInputChange = (e) => {
-        setTitle(e.target.value)
-    }
-
-    const handleContentChange = (e) => {
-        setContent(e.target.value)
-    }
-
     const handleSubmit = () => {
         if(title.length === 0) alert("제목을 입력해주세요.")
         else if(content.length === 0) alert("내용을 입력해주세요.")
@@ -45,9 +37,9 @@ const WritePage = ({userLogin}) => {
         <>
             <Write 
                 inputValue={title} 
-                inputChange={handleInputChange}
+                inputChange={(e) => setTitle(e.target.value)}
                 textAreaValue={content}
-                textAreaChange={handleContentChange}    
+                textAreaChange={(e) => setContent(e.target.value)}    
             />
             <Write_underbar onSubmit={handleSubmit}/>
         </>
