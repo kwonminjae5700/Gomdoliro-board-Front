@@ -15,7 +15,7 @@ const LoginPage = ({setUserLogin}) => {
                 password
             })
 
-            setUserLogin(email)
+            setUserLogin(response.data.nickname)
             setEmail('')
             setPassword('')
             
