@@ -20,6 +20,9 @@ const SignupPage = () => {
             setPassword('')
             setSign('success')
         } catch(error) {
+            alert('누군가 이 이메일을 사용 중입니다')
+            setEmail('')
+            setPassword('')
             setSign('')
         }
     }
@@ -34,7 +37,6 @@ const SignupPage = () => {
             setEmail('')
             nav("/")
         } catch(error) {
-            console.log(email)
             alert('이미 사용 중인 이름입니다')
             setName('')
         }
