@@ -3,12 +3,13 @@
     import axios from 'axios'
 
     const Posts = ({searchValue}) => {
+        const server = import.meta.env.VITE_SERVER_ADDRESS
         const [posts, setPosts] = useState([])
 
         useEffect(() => {
             const getAll = async () => {
                 try {
-                    const response = await axios.get('https://port-0-gomdoliro-board-back-m1qhzohka7273c65.sel4.cloudtype.app/board-all')
+                    const response = await axios.get(`${server}/board-all`)
                     setPosts(response.data)
                 } catch (error) {
                     console.error('Error : ', error)

@@ -8,6 +8,7 @@ import Comment from '../components/Comment'
 import '../styles/read.css'
 
 const Read = () => {
+    const server = import.meta.env.VITE_SERVER_ADDRESS
     const [post, setPost] = useState(null)
     const [del_post, setDel_post] = useState(false)
     const {id} = useParams()
@@ -16,7 +17,7 @@ const Read = () => {
     useEffect(() => {
         const getId = async () => {
             try {
-                const response = await axios.get(`https://port-0-gomdoliro-board-back-m1qhzohka7273c65.sel4.cloudtype.app/board/${id}`)
+                const response = await axios.get(`${server}/board/${id}`)
                 setPost(response.data)
             } catch(error) {
                 console.error("Error : ", error)
@@ -32,7 +33,7 @@ const Read = () => {
 
     const delete_post = async () => {
         try {
-            const response = await axios.delete(`https://port-0-gomdoliro-board-back-m1qhzohka7273c65.sel4.cloudtype.app/board/${id}`)
+            const response = await axios.delete(`${server}/board/${id}`)
         } catch (error) {
             console.error('Error : ', error)
         }

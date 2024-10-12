@@ -4,13 +4,14 @@ import axios from 'axios'
 import '../styles/login.css'
 
 const LoginPage = ({setUserLogin}) => {
+    const server = import.meta.env.VITE_SERVER_ADDRESS
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const nav = useNavigate()
 
     const Login = async () => {
         try {
-            const response = await axios.post('https://port-0-gomdoliro-board-back-m1qhzohka7273c65.sel4.cloudtype.app/login', {
+            const response = await axios.post(`${server}/login`, {
                 email,
                 password
             })

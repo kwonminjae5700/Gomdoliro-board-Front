@@ -5,6 +5,7 @@ import Write from '../components/Write'
 import Write_underbar from '../components/Write_underbar'
 
 const WritePage = ({userLogin}) => {
+    const server = import.meta.env.VITE_SERVER_ADDRESS
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
     const [writer, setWriter] = useState(userLogin)
@@ -12,7 +13,7 @@ const WritePage = ({userLogin}) => {
 
     const post = async () => {
         try {
-            const response = await axios.post('https://port-0-gomdoliro-board-back-m1qhzohka7273c65.sel4.cloudtype.app/board' , {
+            const response = await axios.post(`${server}/board` , {
                 title,
                 content,
                 writer

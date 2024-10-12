@@ -4,6 +4,7 @@ import axios from 'axios'
 import '../styles/login.css'
 
 const SignupPage = () => {
+    const server = import.meta.env.VITE_SERVER_ADDRESS
     const [sign, setSign] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -12,7 +13,7 @@ const SignupPage = () => {
 
     const userPost = async () => {
         try {
-            const response = await axios.post('https://port-0-gomdoliro-board-back-m1qhzohka7273c65.sel4.cloudtype.app/signup', {
+            const response = await axios.post(`${server}/signup`, {
                 email,
                 password
             })
@@ -29,7 +30,7 @@ const SignupPage = () => {
 
     const namePost = async () => {
         try {
-            const response = await axios.patch('https://port-0-gomdoliro-board-back-m1qhzohka7273c65.sel4.cloudtype.app/signup-name', {
+            const response = await axios.patch(`${server}/signup-name`, {
                 email,
                 nickName
             })

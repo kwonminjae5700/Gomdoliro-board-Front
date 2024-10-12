@@ -5,6 +5,7 @@ import Update from '../components/Update'
 import Write_underbar from '../components/Write_underbar'
 
 const UpdatePage = () => {
+    const server = import.meta.env.VITE_SERVER_ADDRESS
     const nav = useNavigate()
     const [title, setUpdate_title] = useState('')
     const [content, setUpdate_content] = useState('')
@@ -13,7 +14,7 @@ const UpdatePage = () => {
     useEffect(() => {
         const updateId = async () => {
             try {
-                const response = await axios.get(`https://port-0-gomdoliro-board-back-m1qhzohka7273c65.sel4.cloudtype.app/board/${id}`)
+                const response = await axios.get(`${server}/board/${id}`)
                 setUpdate_title(response.data.title)
                 setUpdate_content(response.data.content)
             } catch(error) {    
@@ -26,7 +27,7 @@ const UpdatePage = () => {
 
     const update = async () => {
         try {
-            const response = await axios.put('https://port-0-gomdoliro-board-back-m1qhzohka7273c65.sel4.cloudtype.app/board', {
+            const response = await axios.put(`${server}/board`, {
                 id,
                 title,
                 content
