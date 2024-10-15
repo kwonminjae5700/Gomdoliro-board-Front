@@ -3,7 +3,6 @@ import '../styles/comment.css'
 
 const Comment = () => {
 
-
     return (
         <div className="comment">
             <div className="comment_box">
