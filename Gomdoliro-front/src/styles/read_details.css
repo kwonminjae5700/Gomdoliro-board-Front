@@ -4,7 +4,9 @@
     height: 25vh;
     align-items: center;
     padding: 0vh 5vw;
-    border-bottom: 1px solid #808080;
+    background-color : #F2F2F2;
+    border-radius : 0.4em;
+    margin-top : 4vh;
 }
 
 .reco_container { 
@@ -35,6 +37,7 @@
     flex-direction: column;
     align-items: flex-end;
     margin-left : auto;
+    gap : 0.8vh
 }
 
 .reco_info > h4 {
