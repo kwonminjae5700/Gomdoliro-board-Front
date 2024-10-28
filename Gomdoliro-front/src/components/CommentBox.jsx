@@ -1,8 +1,8 @@
 import React from 'react'
-import '../styles/comment.css'
+import '../styles/commentBox.css'
 
-const Comment = () => {
-
+const CommentBox = () => {
+    
     return (
         <div className="comment">
             <div className="comment_box">
@@ -16,4 +16,4 @@ const Comment = () => {
     )
 }
 
-export default Comment
+export default CommentBox
