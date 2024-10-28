@@ -1,6 +1,9 @@
 import {React, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../styles/header.css'
+import user_icon from '../assets/user_icon.png'
+import search_icon from '../assets/search.png'
+import user_line from '../assets/user_line.png'
 
 const Header = ({search_Header, setSearch_Header, userLogin}) => {
     const nav = useNavigate()
@@ -16,13 +19,13 @@ const Header = ({search_Header, setSearch_Header, userLogin}) => {
                     value={search_Header}
                     onChange={(e) => setSearch_Header(e.target.value)}
                 />
-                <img src="src/assets/search.png" alt="search"/>
+                <img src={search_icon} alt="search"/>
             </span>
             <span className="user_list">
                 <h3>내 게시물</h3>
-                <img src="src/assets/user_line.png" className="user_line" alt="user_line"/>
+                <img src={user_line} className="user_line" alt="user_line"/>
                 <h3>{userLogin}</h3>
-                <img src="src/assets/user_icon.png" className="user_ion" alt="user_icon"/>
+                <img src={user_icon} className="user_ion" alt="user_icon"/>
             </span>
         </header>
     )
