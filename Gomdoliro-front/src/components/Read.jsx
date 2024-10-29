@@ -4,7 +4,7 @@ import axios from 'axios'
 import Read_button from '../components/Read_button'
 import Modal from '../components/Modal'
 import Read_details from '../components/Read_details'
-import Comment from '../components/Comment'
+import CommentBox from './CommentBox'
 import '../styles/read.css'
 
 const Read = () => {
@@ -62,7 +62,7 @@ const Read = () => {
                 <p>{post.content}</p>
             </div>
             <Read_details writer={post.writer}/>
-            <Comment />
+            <CommentBox boardId={id}/>
         </main>
     )
 }
