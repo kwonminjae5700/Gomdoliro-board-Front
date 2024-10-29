@@ -34,7 +34,12 @@ const CommentBox = ({boardId}) => {
             <div className="userComment">
                 {comments.length === 0 && <h2>아직 댓글이 없습니다</h2>}
                 {comments.map((comment) => (
-                    <Comment writer={comment.commentWriter} content={comment.commentContent}/>
+                    <Comment
+                        key={comment.id}
+                        writer={comment.commentWriter} 
+                        content={comment.commentContent}
+                        date={comment.commentDate}
+                    />
                 ))}
             </div>
         </div>
