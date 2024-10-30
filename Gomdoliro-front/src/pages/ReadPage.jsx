@@ -1,9 +1,9 @@
 import React from 'react'
 import Read from '../components/Read'
 
-const ReadPage = () => {
+const ReadPage = ({userLogin}) => {
     return (
-        <Read />
+        <Read userLogin={userLogin}/>
     )
 }
 

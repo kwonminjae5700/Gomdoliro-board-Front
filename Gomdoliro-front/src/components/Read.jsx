@@ -7,7 +7,7 @@ import Read_details from '../components/Read_details'
 import CommentBox from './CommentBox'
 import '../styles/read.css'
 
-const Read = () => {
+const Read = ({userLogin}) => {
     const server = import.meta.env.VITE_SERVER_ADDRESS
     const [post, setPost] = useState(null)
     const [del_post, setDel_post] = useState(false)
@@ -62,7 +62,7 @@ const Read = () => {
                 <p>{post.content}</p>
             </div>
             <Read_details writer={post.writer}/>
-            <CommentBox boardId={id}/>
+            <CommentBox boardId={id} userLogin={userLogin}/>
         </main>
     )
 }
