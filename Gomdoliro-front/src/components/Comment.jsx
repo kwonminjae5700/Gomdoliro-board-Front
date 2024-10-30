@@ -4,7 +4,6 @@ import user_icon from '../assets/user_icon.png';
 import seroJum from '../assets/seroJum.png';
 
 const Comment = ({writer, content, date}) => {
-    console.log(date)
 
     return (
         <div className="commentBox">
