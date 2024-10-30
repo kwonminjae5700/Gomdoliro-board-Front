@@ -2,10 +2,12 @@ import {React, useState, useEffect} from 'react'
 import axios from 'axios'
 import '../styles/commentBox.css'
 import Comment from '../components/Comment'
+import CommentButton from '../components/CommentButton'
 
 const CommentBox = ({boardId}) => {
     const server = import.meta.env.VITE_SERVER_ADDRESS
     const [comments, setComments] = useState([])
+    const [input, setInput] = useState('') 
     
     useEffect(() => {
         const getAll = async () => {
@@ -20,16 +22,29 @@ const CommentBox = ({boardId}) => {
         getAll()
     }, [])
 
-    console.log(comments)
-
     return (
         <div className="comment">
             <div className="comment_box">
-                <textarea placeholder="댓글 작성" />
+                <textarea 
+                    placeholder="댓글 작성"
+                    value={input}
+                    onChange={(e) => {
+                        setInput(e.target.value)
+                    }}
+                />
             </div>
             <span className="buttonBox">
-                <button>취소</button>
-                <button>작성</button>
+                <CommentButton 
+                    text={"취소"} 
+                    backColor={"#fff"}
+                    onClick={() => {
+                        setInput('')
+                    }}
+                />
+                <CommentButton 
+                    text={"작성"} 
+                    backColor={"#1F8BFF"}
+                />
             </span>
             <div className="userComment">
                 {comments.length === 0 && <h2>아직 댓글이 없습니다</h2>}
