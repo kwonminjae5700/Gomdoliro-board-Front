@@ -35,21 +35,6 @@
     margin-left : 55vw;
 }
 
-.buttonBox > button {
-    width : 5vw;
-    height : 5vh;
-    margin-left : 1.4vh;
-    border-radius : 0.5rem;
-    border : none;
-    background-color : #1F8BFF;
-    color : #fff;
-    font-size : 1rem;
-}
-
-.comment > button:hover {
-    cursor : pointer;
-}
-
 .userComment {
     display : inline-flex;
     flex-direction : column;
