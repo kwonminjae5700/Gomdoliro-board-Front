@@ -7,7 +7,9 @@ import CommentButton from '../components/CommentButton'
 const CommentBox = ({boardId}) => {
     const server = import.meta.env.VITE_SERVER_ADDRESS
     const [comments, setComments] = useState([])
-    const [input, setInput] = useState('') 
+    const [input, setInput] = useState('')
+    let canWrite = 0
+    let bgColor = '#B3B3B3'
     
     useEffect(() => {
         const getAll = async () => {
@@ -21,6 +23,15 @@ const CommentBox = ({boardId}) => {
 
         getAll()
     }, [])
+
+    if(input.length > 0) {
+        canWrite = 1
+        bgColor = '#1F8BFF'
+    }
+    else {
+        canWrite = 0
+        bgColor = '#B3B3B3'
+    }
 
     return (
         <div className="comment">
@@ -43,7 +54,8 @@ const CommentBox = ({boardId}) => {
                 />
                 <CommentButton 
                     text={"작성"} 
-                    backColor={"#1F8BFF"}
+                    backColor={bgColor}
+                    
                 />
             </span>
             <div className="userComment">
