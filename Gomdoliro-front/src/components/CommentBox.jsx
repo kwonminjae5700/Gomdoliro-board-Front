@@ -4,10 +4,12 @@ import '../styles/commentBox.css'
 import Comment from '../components/Comment'
 import CommentButton from '../components/CommentButton'
 
-const CommentBox = ({boardId}) => {
+const CommentBox = ({boardId, userLogin}) => {
     const server = import.meta.env.VITE_SERVER_ADDRESS
     const [comments, setComments] = useState([])
-    const [input, setInput] = useState('')
+    const [commentContent, setInput] = useState('')
+    const [commentWriter, setWriter] = useState(userLogin)
+    console.log(userLogin)
     let canWrite = 0
     let bgColor = '#B3B3B3'
     
@@ -22,9 +24,9 @@ const CommentBox = ({boardId}) => {
         }
 
         getAll()
-    }, [])
+    }, [comments])
 
-    if(input.length > 0) {
+    if(commentContent.length > 0) {
         canWrite = 1
         bgColor = '#1F8BFF'
     }
@@ -33,12 +35,29 @@ const CommentBox = ({boardId}) => {
         bgColor = '#B3B3B3'
     }
 
+    const commentPost = async () => {
+        try {
+            const response = await axios.post(`${server}/board/${boardId}/comments`, {
+                commentContent,
+                commentWriter
+            })
+
+            setInput('')
+        } catch(error) {
+            console.log('Error : ', error)
+        }
+    }
+
+    const handleSubmit = () => {
+        if(canWrite) commentPost()
+    }
+
     return (
         <div className="comment">
             <div className="comment_box">
                 <textarea 
                     placeholder="댓글 작성"
-                    value={input}
+                    value={commentContent}
                     onChange={(e) => {
                         setInput(e.target.value)
                     }}
@@ -55,7 +74,7 @@ const CommentBox = ({boardId}) => {
                 <CommentButton 
                     text={"작성"} 
                     backColor={bgColor}
-                    
+                    onClick ={() => handleSubmit()}
                 />
             </span>
             <div className="userComment">
