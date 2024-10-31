@@ -33,7 +33,7 @@ const Read = ({userLogin}) => {
 
     const delete_post = async () => {
         try {
-            const response = await axios.delete(`${server}/board/${id}`)
+            await axios.delete(`${server}/board/${id}`)
         } catch (error) {
             console.error('Error : ', error)
         }
@@ -47,6 +47,7 @@ const Read = ({userLogin}) => {
                     delIsFinish={() => {
                         delete_post()
                         setDel_post(false)
+                        nav("/main")
                     }} 
                 />
             )}
