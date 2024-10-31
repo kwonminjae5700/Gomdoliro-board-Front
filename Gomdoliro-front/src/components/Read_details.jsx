@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styles/read_details.css'
 
-const Read_details = ({writer}) => {
+const Read_details = ({writer, count}) => {
 
     return (
         <div className="read_details"> 
@@ -13,7 +13,7 @@ const Read_details = ({writer}) => {
 
                 <span className="reco">
                     <h4>댓글</h4>
-                    <h3>0</h3>
+                    <h3>{count}</h3>
                 </span>
             </span>
 

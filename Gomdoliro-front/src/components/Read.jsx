@@ -10,6 +10,7 @@ import '../styles/read.css'
 const Read = ({userLogin}) => {
     const server = import.meta.env.VITE_SERVER_ADDRESS
     const [post, setPost] = useState(null)
+    const [count, setCount] = useState(0)
     const [del_post, setDel_post] = useState(false)
     const {id} = useParams()
     const nav = useNavigate()
@@ -47,7 +48,7 @@ const Read = ({userLogin}) => {
                     delIsFinish={() => {
                         delete_post()
                         setDel_post(false)
-                        setTimeout(() => nav("/main"), 100);
+                        setTimeout(() => nav("/main"), 200);
                     }} 
                 />
             )}
@@ -62,8 +63,8 @@ const Read = ({userLogin}) => {
             <div className="read_section">
                 <p>{post.content}</p>
             </div>
-            <Read_details writer={post.writer}/>
-            <CommentBox boardId={id} userLogin={userLogin}/>
+            <Read_details writer={post.writer} count={count}/>
+            <CommentBox boardId={id} userLogin={userLogin} setCount={setCount}/>
         </main>
     )
 }

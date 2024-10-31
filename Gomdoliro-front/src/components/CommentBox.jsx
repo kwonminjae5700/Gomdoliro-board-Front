@@ -4,7 +4,7 @@ import '../styles/commentBox.css'
 import Comment from '../components/Comment'
 import CommentButton from '../components/CommentButton'
 
-const CommentBox = ({boardId, userLogin}) => {
+const CommentBox = ({boardId, userLogin, setCount}) => {
     const server = import.meta.env.VITE_SERVER_ADDRESS
     const [comments, setComments] = useState([])
     const [commentContent, setInput] = useState('')
@@ -25,6 +25,10 @@ const CommentBox = ({boardId, userLogin}) => {
         getAll()
     }, [])
 
+    useEffect(() => {
+        setCount(comments.length)
+    }, [comments])
+    
     if(commentContent.length > 0) {
         canWrite = 1
         bgColor = '#1F8BFF'
