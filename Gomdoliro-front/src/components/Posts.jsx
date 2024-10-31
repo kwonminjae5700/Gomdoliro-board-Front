@@ -6,18 +6,18 @@
         const server = import.meta.env.VITE_SERVER_ADDRESS
         const [posts, setPosts] = useState([])
 
-        useEffect(() => {
-            const getAll = async () => {
-                try {
-                    const response = await axios.get(`${server}/board-all`)
-                    setPosts(response.data)
-                } catch (error) {
-                    console.error('Error : ', error)
-                }
+        const getAll = async () => {
+            try {
+                const response = await axios.get(`${server}/board-all`)
+                setPosts(response.data)
+            } catch (error) {
+                console.error('Error : ', error)
             }
+        }
 
+        useEffect(() => {
             getAll()
-        }, [])
+        }, [posts])
 
         const searchFilter = () => {
             if(searchValue && searchValue !== '') {

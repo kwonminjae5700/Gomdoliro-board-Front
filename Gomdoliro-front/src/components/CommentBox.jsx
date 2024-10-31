@@ -9,22 +9,21 @@ const CommentBox = ({boardId, userLogin}) => {
     const [comments, setComments] = useState([])
     const [commentContent, setInput] = useState('')
     const [commentWriter, setWriter] = useState(userLogin)
-    console.log(userLogin)
     let canWrite = 0
     let bgColor = '#B3B3B3'
+
+    const getAll = async () => {
+        try {
+            const response = await axios.get(`${server}/board/${boardId}/comments/all`)
+            setComments(response.data)
+        } catch(error) {
+            console.error('Error : ', error);
+        }
+    }
     
     useEffect(() => {
-        const getAll = async () => {
-            try {
-                const response = await axios.get(`${server}/board/${boardId}/comments/all`)
-                setComments(response.data)
-            } catch(error) {
-                console.error('Error : ', error);
-            }
-        }
-
         getAll()
-    }, [comments])
+    }, [])
 
     if(commentContent.length > 0) {
         canWrite = 1
@@ -41,7 +40,7 @@ const CommentBox = ({boardId, userLogin}) => {
                 commentContent,
                 commentWriter
             })
-
+            getAll()
             setInput('')
         } catch(error) {
             console.log('Error : ', error)
