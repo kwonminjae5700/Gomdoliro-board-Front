@@ -47,7 +47,7 @@ const Read = ({userLogin}) => {
                     delIsFinish={() => {
                         delete_post()
                         setDel_post(false)
-                        nav("/main")
+                        setTimeout(() => nav("/main"), 100);
                     }} 
                 />
             )}
