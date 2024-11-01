@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import '../styles/login.css'
 
-const LoginPage = ({setUserLogin}) => {
+const LoginPage = () => {
     const server = import.meta.env.VITE_SERVER_ADDRESS
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -16,7 +16,8 @@ const LoginPage = ({setUserLogin}) => {
                 password
             })
 
-            setUserLogin(response.data.nickname)
+            localStorage.setItem('id', email)
+            localStorage.setItem('nickname', response.data.nickname)
             setEmail('')
             setPassword('')
             

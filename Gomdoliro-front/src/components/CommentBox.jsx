@@ -4,12 +4,12 @@ import '../styles/commentBox.css'
 import Comment from '../components/Comment'
 import CommentButton from '../components/CommentButton'
 
-const CommentBox = ({boardId, userLogin, setCount}) => {
+const CommentBox = ({boardId, setCount}) => {
     const server = import.meta.env.VITE_SERVER_ADDRESS
     const [comments, setComments] = useState([])
     const [comDel, setComDel] = useState(0)
     const [commentContent, setInput] = useState('')
-    const [commentWriter, setWriter] = useState(userLogin)
+    const [commentWriter, setWriter] = useState(localStorage.getItem('nickname'))
     let canWrite = 0
     let bgColor = '#B3B3B3'
 

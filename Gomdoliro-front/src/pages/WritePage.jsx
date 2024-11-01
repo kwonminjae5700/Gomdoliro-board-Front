@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom'
 import Write from '../components/Write'
 import Write_underbar from '../components/Write_underbar'
 
-const WritePage = ({userLogin}) => {
+const WritePage = () => {
     const server = import.meta.env.VITE_SERVER_ADDRESS
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
-    const [writer, setWriter] = useState(userLogin)
+    const [writer, setWriter] = useState(localStorage.getItem('nickname'))
     const nav = useNavigate()
 
     const post = async () => {

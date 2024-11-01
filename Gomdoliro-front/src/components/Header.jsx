@@ -5,9 +5,9 @@ import user_icon from '../assets/user_icon.png'
 import search_icon from '../assets/search.png'
 import user_line from '../assets/user_line.png'
 
-const Header = ({search_Header, setSearch_Header, userLogin}) => {
+const Header = ({search_Header, setSearch_Header}) => {
+    const [name, setName] = useState(localStorage.getItem('nickname'))
     const nav = useNavigate()
-
     return (
         <header>
             <h2 onClick={()=>{nav("/main")}}>BamGallery</h2>
@@ -24,7 +24,7 @@ const Header = ({search_Header, setSearch_Header, userLogin}) => {
             <span className="user_list">
                 <h3>내 게시물</h3>
                 <img src={user_line} className="user_line" alt="user_line"/>
-                <h3>{userLogin}</h3>
+                <h3>{name}</h3>
                 <img src={user_icon} className="user_ion" alt="user_icon"/>
             </span>
         </header>
