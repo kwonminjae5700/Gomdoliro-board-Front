@@ -4,15 +4,8 @@ import '../styles/commentButton.css'
 const CommentButton = ({text, backColor, onClick}) => {
     let buttonStyle = {
         backgroundColor : backColor,
-        ...(backColor === '#fff' && {
-            color : "#000"
-        })
-    }
-
-    buttonStyle = {
-        backgroundColor : backColor,
+        color : text === '취소' || text === '삭제' ? "#000" : "#fff",
         ...(text === '삭제' && {
-            color : "#000",
             width : "5vw",
             height : "5vh",
             position : "absolute",
