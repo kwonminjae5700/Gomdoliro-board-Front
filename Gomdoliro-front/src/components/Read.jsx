@@ -29,7 +29,7 @@ const Read = ({userLogin}) => {
     }, [])
 
     if (!post) {
-        return <div></div>;
+        return <></>;
     }
 
     const delete_post = async () => {
