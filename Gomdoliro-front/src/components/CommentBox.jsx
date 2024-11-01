@@ -7,6 +7,7 @@ import CommentButton from '../components/CommentButton'
 const CommentBox = ({boardId, userLogin, setCount}) => {
     const server = import.meta.env.VITE_SERVER_ADDRESS
     const [comments, setComments] = useState([])
+    const [comDel, setComDel] = useState(0)
     const [commentContent, setInput] = useState('')
     const [commentWriter, setWriter] = useState(userLogin)
     let canWrite = 0
@@ -23,7 +24,7 @@ const CommentBox = ({boardId, userLogin, setCount}) => {
     
     useEffect(() => {
         getAll()
-    }, [])
+    }, [comDel])
 
     useEffect(() => {
         setCount(comments.length)
@@ -85,9 +86,12 @@ const CommentBox = ({boardId, userLogin, setCount}) => {
                 {comments.map((comment) => (
                     <Comment
                         key={comment.id}
+                        commentId={comment.id}
                         writer={comment.commentWriter} 
                         content={comment.commentContent}
                         date={comment.commentDate}
+                        boardId={boardId}
+                        setComDel={setComDel}
                     />
                 ))}
             </div>

@@ -1,11 +1,23 @@
 import {React, useState} from 'react';
+import axios from 'axios'
 import '../styles/comment.css';
 import user_icon from '../assets/user_icon.png';
 import seroJum from '../assets/seroJum.png';
 import CommentButton from '../components/CommentButton'
 
-const Comment = ({writer, content, date}) => {
+const Comment = ({commentId, writer, content, date, boardId, setComDel}) => {
+    const server = import.meta.env.VITE_SERVER_ADDRESS
     const [buttonDel, setButtonDel] = useState(false)
+
+    const commentDel = async () => {
+        try {
+            await axios.delete(`${server}/board/${boardId}/comments/${commentId}`)
+        } catch(error) {
+            console.log("Error : ", error)
+        }
+
+        setComDel(commentId)
+    }
 
     return (
         <div className="commentBox">
@@ -22,7 +34,11 @@ const Comment = ({writer, content, date}) => {
                     onClick={() => setButtonDel(true)}
                 />
                 {buttonDel && 
-                    <CommentButton text={"삭제"} backColor={"#B3B3B3"}/>
+                    <CommentButton 
+                        text={"삭제"} 
+                        backColor={"#B3B3B3"} 
+                        onClick={() => commentDel()}
+                    />
                 }
                 
             </span>
