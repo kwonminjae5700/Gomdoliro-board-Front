@@ -43,7 +43,8 @@ const Read = ({userLogin}) => {
     return (
         <main>
             {del_post && (
-                <Modal 
+                <Modal
+                    text={"글"} 
                     onClose={() => setDel_post(false)}
                     delIsFinish={() => {
                         delete_post()
