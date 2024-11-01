@@ -4,10 +4,12 @@ import '../styles/comment.css';
 import user_icon from '../assets/user_icon.png';
 import seroJum from '../assets/seroJum.png';
 import CommentButton from '../components/CommentButton'
+import Modal from '../components/Modal'
 
 const Comment = ({commentId, writer, content, date, boardId, setComDel}) => {
     const server = import.meta.env.VITE_SERVER_ADDRESS
     const [buttonDel, setButtonDel] = useState(false)
+    const [modalOpen, setModal] = useState(false)
 
     const commentDel = async () => {
         try {
@@ -21,6 +23,12 @@ const Comment = ({commentId, writer, content, date, boardId, setComDel}) => {
 
     return (
         <div className="commentBox">
+            {modalOpen && 
+                <Modal 
+                    text={"댓글"}
+                    onClose={() => setModal(false)}
+                    delIsFinish={() => commentDel()}
+                />}
             <span className="commentRow">
                 <img src={user_icon} alt="icon" className="userIcon" />
                 <span className="commentSpan">
@@ -37,7 +45,7 @@ const Comment = ({commentId, writer, content, date, boardId, setComDel}) => {
                     <CommentButton 
                         text={"삭제"} 
                         backColor={"#B3B3B3"} 
-                        onClick={() => commentDel()}
+                        onClick={() => setModal(true)}
                     />
                 }
                 
