@@ -1,5 +1,5 @@
-import { React, useState } from 'react'
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { React, useState, useEffect} from 'react'
+import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import Header from './components/Header'
 import MainPage from './pages/MainPage'
 import WritePage from './pages/WritePage'
@@ -11,8 +11,13 @@ import SignupPage from './pages/SignupPage'
 const AppContent = () => {
     const [searchValue, setSearch] = useState('')
     const location = useLocation()
+    const nav = useNavigate()
 
     const hideHeader = location.pathname === '/' || location.pathname === '/signup'
+
+    useEffect(() => {
+        if(localStorage.getItem('nickname') === null) nav('/')
+    })
 
     return (
         <>
