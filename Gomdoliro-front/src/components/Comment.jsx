@@ -11,8 +11,12 @@ import ReplyComment from '../components/ReplyComment'
 
 const Comment = ({commentId, writer, content, date, boardId, setComDel}) => {
     const server = import.meta.env.VITE_SERVER_ADDRESS
+    const [addReply, setAddReply] = useState(false)
     const [buttonDel, setButtonDel] = useState(false)
     const [modalOpen, setModal] = useState(false)
+    const [reCommentContent, setReplyContent] = useState('')
+    const [reCommentWriter, setReWriter] = useState(localStorage.getItem('nickname'))
+    const [reComment, setReComment] = useState([])
 
     const commentDel = async () => {
         try {
@@ -22,6 +26,29 @@ const Comment = ({commentId, writer, content, date, boardId, setComDel}) => {
         }
 
         setComDel(commentId)
+    }
+
+    const getReply = async () => {
+        try {
+            const response = await axios.get(`${server}/board/${boardId}/comments/${commentId}/recomment/read`)
+            setReComment(response.data)
+        } catch(error) {
+            console.log("Error : ", error)
+        }
+    }
+
+    const postReply = async () => {
+        try {
+            await axios.post(`${server}/board/${boardId}/comments/${commentId}/recomment`, {
+                reCommentContent,
+                reCommentWriter
+            })
+        } catch(error) {
+            console.log("Error : ", error)
+        }
+
+        setReplyContent('')
+        setAddReply(false)
     }
 
     return (
@@ -42,7 +69,7 @@ const Comment = ({commentId, writer, content, date, boardId, setComDel}) => {
                     src={seroJum} 
                     alt="seroJum" 
                     className="seroJum"
-                    onClick={() => setButtonDel(true)}
+                    onClick={() => setButtonDel(!buttonDel)}
                 />
                 {buttonDel && 
                     <CommentButton 
@@ -56,16 +83,52 @@ const Comment = ({commentId, writer, content, date, boardId, setComDel}) => {
             <div className="commentContent">
                 {content}
             </div>
+            {!addReply ? 
             <div className="funcComment">
-                <div className="addComment">
+                <div className="addComment" onClick={() => setAddReply(true)}>
                     <img src={plus} alt="plus"/>
                     <span>답글 달기</span>
                 </div>
-                <div className="seeComment">
+                <div className="seeComment" onClick={() => getReply()}>
                     <img src={arrow} alt="arrow"/>
                     <span>답글 열기</span>
                 </div>
             </div>
+            :
+            <div className="addReply">
+                <input 
+                    type="text" 
+                    className="replyInput" 
+                    value={reCommentContent} 
+                    onChange={(e) => setReplyContent(e.target.value)}
+                />
+
+                <CommentButton 
+                    text={"취소"} 
+                    backColor={"#fff"} 
+                    onClick={() => {
+                        setAddReply(false)
+                        setReplyContent(null)
+                    }}
+                />
+                <CommentButton 
+                    text={"작성"}
+                    backColor={"#1F8BFF"}
+                    onClick={() => {
+                        if(reCommentContent.length > 0) postReply()
+                    }}
+                />
+            </div>
+            }
+
+            {reComment.map((item) => (
+                <ReplyComment
+                    key={item.id}
+                    commentId={item.id}
+                    writer={item.reCommentWriter}
+                    content={item.reCommentContent}
+                />
+            ))}
         </div>
     );
 };

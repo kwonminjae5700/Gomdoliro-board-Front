@@ -1,10 +1,11 @@
 import {React, useState} from 'react'
+import '../styles/replyComment.css'
 import user_icon from '../assets/user_icon.png';
 import seroJum from '../assets/seroJum.png';
 import Modal from '../components/Modal';
-import '../styles/replyComment.css'
+import CommentButton from '../components/CommentButton'
 
-const ReplyComment = ({commentId, writer, content, date}) => {
+const ReplyComment = ({writer, content, date}) => {
     const [buttonDel, setButtonDel] = useState(false)
     const [modalOpen, setModal] = useState(false)
 

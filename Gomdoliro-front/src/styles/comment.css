@@ -103,3 +103,21 @@
     line-height: normal;
 }
 
+.addReply {
+    width : 100%;
+    min-height : fit-content;
+}
+
+.replyInput {
+    margin-top : 4vh;
+    margin-left : 0.6vw;
+    width : 80%;
+    height : 4vh;
+    border : none;
+    outline : none;
+    border-bottom : 1px solid #000;
+    font-size : 1em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
