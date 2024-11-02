@@ -1,0 +1,56 @@
+.replyBox {
+    width: 95%;
+    height: 17vh;
+    margin-top: 6vh;
+    box-sizing : border-box;
+    margin-left : auto;
+}
+
+.commentRow {
+    display: flex;
+    align-items: center;
+    position : relative;
+}
+
+.userIcon {
+    width: 4vw;
+    height: 6.6vh; 
+}
+
+.commentSpan {
+    margin-left: 1vw;
+    margin-bottom : -1.6vh;
+}
+
+.commentSpan > h3 {
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.commentSpan > h4 {
+    color: #808080;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.seroJum {
+    width: 0.5vw; 
+    height: 3.6vh;
+    margin-top : 0.4vh;
+    margin-left : auto;
+    cursor : pointer;
+}
+
+.commentContent {
+    margin-top : 4vh;
+    margin-left : 0.4vw;
+    color : #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 380;
+    line-height: normal;
+}
