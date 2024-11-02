@@ -58,7 +58,7 @@
 .funcComment {
     display : flex;
     flex-direction : row;
-    gap : 1.4vw;
+    gap : 1.2vw;
     margin-top : 4vh;
 }
 
@@ -92,7 +92,7 @@
 }
 
 .seeComment > img {
-    margin-top : -0.5vh;
+    margin-top : -0.4vh;
 }
 .seeComment > span {
     color : #1F8BFF;
