@@ -2,6 +2,8 @@ import {React, useState} from 'react';
 import axios from 'axios'
 import '../styles/comment.css';
 import user_icon from '../assets/user_icon.png';
+import plus from '../assets/plus.svg'
+import arrow from '../assets/arrow.svg'
 import seroJum from '../assets/seroJum.png';
 import CommentButton from '../components/CommentButton'
 import Modal from '../components/Modal'
@@ -53,8 +55,15 @@ const Comment = ({commentId, writer, content, date, boardId, setComDel}) => {
             <div className="commentContent">
                 {content}
             </div>
-            <div className="addComment">
-                + 답글 달기
+            <div className="funcComment">
+                <div className="addComment">
+                    <img src={plus} alt="plus"/>
+                    <span>답글 달기</span>
+                </div>
+                <div className="seeComment">
+                    <img src={arrow} alt="arrow"/>
+                    <span>답글 열기</span>
+                </div>
             </div>
         </div>
     );
