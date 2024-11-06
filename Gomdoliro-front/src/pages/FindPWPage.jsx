@@ -2,6 +2,7 @@ import {React, useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import FindPWInput from '../components/FindPWInput'
+import CodeNumber from '../components/CodeNumber'
 import '../styles/login.css'
 
 const FindPWPage = () => {
@@ -10,6 +11,7 @@ const FindPWPage = () => {
     const [nickname, setNickname] = useState('')
     const [input, setInput] = useState(false)
     const [buttonDo, setButtonDo] = useState('다음')
+    const [codeCnt, setCodeCnt] = useState(false)
     const nav = useNavigate()
 
     const testEmail = (word) => {
@@ -33,7 +35,7 @@ const FindPWPage = () => {
         backgroundColor : "#999999"
     }
 
-    if(email.length > 0 && nickname.length > 0) {
+    if(email.length > 0 && nickname.length > 0 && buttonDo !== '인증하기' || codeCnt) {
         buttonStyle = {
             backgroundColor : "#1F8BFF"
         }
@@ -56,7 +58,10 @@ const FindPWPage = () => {
                     />
                 }
                 {buttonDo === '인증하기' && 
-                    <div></div>
+                    <CodeNumber 
+                        email={email}
+                        setCodeCnt={setCodeCnt}
+                    />
                 }
                 <button style={buttonStyle} onClick={() => {
                     if(next && buttonDo==='다음') {
