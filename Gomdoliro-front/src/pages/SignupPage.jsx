@@ -1,4 +1,4 @@
-import {React, useState} from 'react'
+import {React, useState, useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import '../styles/login.css'
@@ -9,7 +9,12 @@ const SignupPage = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [nickName, setName] = useState('')
+    const [useNick, setUseNick] = useState(false)
     const nav = useNavigate()
+
+    useEffect(() => {
+        setUseNick(false)
+    }, [nickName])
 
     const userPost = async () => {
         try {
@@ -38,11 +43,16 @@ const SignupPage = () => {
             setEmail('')
             nav("/")
         } catch(error) {
-            alert('이미 사용 중인 이름입니다')
-            setName('')
+            setUseNick(true)
         }
     }
     
+    let alreadyUse = {
+        color : '#B3B3B3',
+        ...(useNick && {
+            color : '#FF1F1F'
+        })
+    }
     let canSignup = 0, canName = 0
     let buttonStyle = {
         backgroundColor : "#999999"
@@ -51,7 +61,7 @@ const SignupPage = () => {
         backgroundColor : "#999999"
     }
 
-    if(nickName.length > 0) {
+    if(nickName.length > 0 && !useNick) {
         nameButton = {
             backgroundColor : "#1F8BFF"
         }
@@ -114,7 +124,8 @@ const SignupPage = () => {
                                         setName(e.target.value)
                                     }}
                                 />
-                                <h4 className="input-nick">닉네임을 입력해주세요.</h4>
+                                {!useNick && <h4 className="input-nick" style={alreadyUse}>닉네임을 입력해주세요.</h4>}
+                                {useNick && <h4 className="input-nick" style={alreadyUse}>이미 사용 중인 닉네임입니다.</h4>}
                             </div>
                             <div className="login-null"></div>
                         </div>

@@ -91,10 +91,9 @@
 }
 
 .input-nick {
-    color : #B3B3B3;
     font-size: 24px;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 500;
     line-height: normal;
     padding-left : 1vw;
     padding-top : 6vh;
