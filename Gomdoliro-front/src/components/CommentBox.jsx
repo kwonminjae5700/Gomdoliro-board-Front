@@ -52,10 +52,6 @@ const CommentBox = ({boardId, setCount}) => {
         }
     }
 
-    const handleSubmit = () => {
-        if(canWrite) commentPost()
-    }
-
     return (
         <div className="comment">
             <div className="comment_box">
@@ -78,7 +74,9 @@ const CommentBox = ({boardId, setCount}) => {
                 <CommentButton 
                     text={"작성"} 
                     backColor={bgColor}
-                    onClick ={() => handleSubmit()}
+                    onClick ={() => {
+                        if(canWrite) commentPost()
+                    }}
                 />
             </span>
             <div className="userComment">
