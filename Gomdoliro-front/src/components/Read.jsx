@@ -12,14 +12,23 @@ const Read = () => {
     const [post, setPost] = useState(null)
     const [count, setCount] = useState(0)
     const [del_post, setDel_post] = useState(false)
+    const [writer, setWriter] = useState(false)
+    const [read, setRead] = useState(false)
     const {id} = useParams()
     const nav = useNavigate()
+
+    useEffect(() => {
+        if(writer) {
+            if(localStorage.getItem('nickname') == writer) setRead(true)
+        }
+    }, [writer])
 
     useEffect(() => {
         const getId = async () => {
             try {
                 const response = await axios.get(`${server}/board/${id}`)
                 setPost(response.data)
+                setWriter(response.data.writer)
             } catch(error) {
                 console.error("Error : ", error)
             }
@@ -57,8 +66,12 @@ const Read = () => {
             <div className="read_head">
                 <h1>{post.title}</h1>
                 <span>
-                    <Read_button color={"#999999"} text={"수정"} button_work={() => nav(`/update/${post.id}`)}/>
-                    <Read_button color={"#FF1F1F"} text={"삭제"} button_work={() => setDel_post(true)}/>
+                    {read && (
+                        <>
+                            <Read_button color={"#999999"} text={"수정"} button_work={() => nav(`/update/${post.id}`)}/>
+                            <Read_button color={"#FF1F1F"} text={"삭제"} button_work={() => setDel_post(true)}/>
+                        </>
+                    )}
                 </span>
             </div>
             <div className="read_section">
