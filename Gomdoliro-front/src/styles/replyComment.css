@@ -1,9 +1,10 @@
 .replyBox {
     width: 95%;
     height: 17vh;
-    margin-top: 2vh;
+    margin-top: 4vh;
     box-sizing : border-box;
     margin-left : auto;
+    margin-bottom : -2vh;
 }
 
 .commentRow {
