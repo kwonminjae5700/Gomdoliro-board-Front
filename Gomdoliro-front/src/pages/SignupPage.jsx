@@ -122,7 +122,7 @@ const SignupPage = () => {
                                 <input 
                                     type="text"
                                     placeholder="홍길동                                                      16"
-                                    maxlength="16"
+                                    maxLength="16"
                                     value={nickName}
                                     onChange={(e) => {
                                         setName(e.target.value)
