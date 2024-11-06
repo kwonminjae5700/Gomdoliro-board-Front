@@ -14,11 +14,19 @@ const Comment = ({commentId, writer, content, date, boardId, setComDel}) => {
     const [addReply, setAddReply] = useState(false)
     const [buttonDel, setButtonDel] = useState(false)
     const [modalOpen, setModal] = useState(false)
+    const [commentOpen, setOpen] = useState(false)
     const [reCommentContent, setReplyContent] = useState('')
     const [reCommentWriter, setReWriter] = useState(localStorage.getItem('nickname'))
     const [reComment, setReComment] = useState([])
 
+    let arrow_style = {
+        ...(commentOpen && {
+            transform : 'scaleY(-1)'
+        })
+    }
+
     const commentDel = async () => {
+        console.log(commentId)
         try {
             await axios.delete(`${server}/board/${boardId}/comments/${commentId}`)
         } catch(error) {
@@ -89,8 +97,15 @@ const Comment = ({commentId, writer, content, date, boardId, setComDel}) => {
                     <img src={plus} alt="plus"/>
                     <span>답글 달기</span>
                 </div>
-                <div className="seeComment" onClick={() => getReply()}>
-                    <img src={arrow} alt="arrow"/>
+                <div className="seeComment" onClick={() => {
+                    if(!commentOpen) {
+                        setOpen(true)
+                        getReply()
+                    } else {
+                        setOpen(false)
+                    }
+                }}>
+                    <img src={arrow} alt="arrow" style={arrow_style}/>
                     <span>답글 열기</span>
                 </div>
             </div>
@@ -121,7 +136,7 @@ const Comment = ({commentId, writer, content, date, boardId, setComDel}) => {
             </div>
             }
 
-            {reComment.map((item) => (
+            {commentOpen && reComment.map((item) => (
                 <ReplyComment
                     key={item.id}
                     commentId={item.id}
