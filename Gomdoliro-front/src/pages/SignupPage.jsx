@@ -12,20 +12,34 @@ const SignupPage = () => {
     const [useNick, setUseNick] = useState(false)
     const nav = useNavigate()
 
+    const testEmail = (word) => {
+        let testWord = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i
+
+        return testWord.test(word)
+    }
+
     const userPost = async () => {
-        try {
-            const response = await axios.post(`${server}/signup`, {
-                email,
-                password
-            })
-            console.log('success')
-            setPassword('')
-            setSign('success')
-        } catch(error) {
-            alert('누군가 이 이메일을 사용 중입니다')
+        let check = testEmail(email)
+
+        if(check) {
+            try {
+                const response = await axios.post(`${server}/signup`, {
+                    email,
+                    password
+                })
+                console.log('success')
+                setPassword('')
+                setSign('success')
+            } catch(error) {
+                alert('누군가 이 이메일을 사용 중입니다')
+                setEmail('')
+                setPassword('')
+                setSign('')
+            }
+        } else {
+            alert("이메일 형식이 올바르지 않습니다.")
             setEmail('')
             setPassword('')
-            setSign('')
         }
     }
 
