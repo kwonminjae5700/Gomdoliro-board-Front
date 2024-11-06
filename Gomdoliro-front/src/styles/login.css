@@ -31,12 +31,20 @@
     white-space: nowrap;
 }
 
-.login-container > h3 {
+.login-func {
+    display : flex;
+    gap : 1.4vw;
+    margin-left : 1vw;
+}
+
+.login-func > h3 {
     color : #1F8BFF;
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    cursor : pointer;
+    white-space : nowrap;
 }
 .login-input {
     width : 34vw;
@@ -76,17 +84,13 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    width : 34vw;
+    width : 35vw;
     height : 9vh;
     border : none;
     border-radius: 8px;
 }
 
 .login-container > button:hover {
-    cursor : pointer;
-}
-
-.login-container > h3 {
     cursor : pointer;
 }
 
@@ -98,4 +102,20 @@
     line-height: normal;
     padding-left : 1vw;
     padding-top : 6vh;
+}
+
+.send-email {
+    display : flex;
+    flex-direction : column;
+    gap : 10vh;
+    margin-bottom : 5.8vh;
+}
+
+.send-email > span {
+    text-align : center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    white-space : nowrap;
 }
