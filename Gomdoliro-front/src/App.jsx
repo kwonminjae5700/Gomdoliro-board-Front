@@ -7,13 +7,14 @@ import ReadPage from './pages/ReadPage'
 import UpdatePage from './pages/UpdatePage'
 import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
+import FindPWPage from './pages/FindPWPage'
 
 const AppContent = () => {
     const [searchValue, setSearch] = useState('')
     const location = useLocation()
     const nav = useNavigate()
 
-    const hideHeader = location.pathname === '/' || location.pathname === '/signup'
+    const hideHeader = location.pathname === '/' || location.pathname === '/signup' || location.pathname === '/findpw'
 
     useEffect(() => {
         if(localStorage.getItem('nickname') === null) nav('/')
@@ -34,6 +35,7 @@ const AppContent = () => {
                 <Route path="/read/:id" element={<ReadPage />} />
                 <Route path="/update/:id" element={<UpdatePage />} />
                 <Route path="/signup" element={<SignupPage />}/>
+                <Route path="/findpw" element={<FindPWPage />}/>
             </Routes>
         </>
     )
