@@ -75,9 +75,15 @@ const LoginPage = () => {
                         Login()
                     }
                 }}>로그인</button>
-                <h3 onClick={() => {
-                    nav("/signup")
-                }}>회원가입하기</h3>
+                <div className="login-func">
+                    <h3 onClick={() => {
+                        nav("/signup")
+                    }}>회원가입하기</h3>
+                    <h3 
+                        style={{color : '#999'}}
+                        onClick={() => nav("/findpw")}
+                    >비밀번호 찾기</h3>
+                </div>
             </main>
         </div>
     )
