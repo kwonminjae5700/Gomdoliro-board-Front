@@ -5,7 +5,7 @@ header {
     border-bottom : 1px solid #B3B3B3;
     padding : 0vw 10vw;
     align-items : center;
-    box-sizing : border-box;    
+    box-sizing : border-box;
 }
 
 header > h2 {
@@ -62,4 +62,25 @@ header > h2:hover {
 .user_ion {
     width : 4vw;
     height : 6.8vh;
+    cursor : pointer;
+}
+
+.userInfo {
+    background-color : white;
+    position : fixed;
+    top : 10vh;
+    right : 12.4vw;
+    width : 8vw;
+    height : 18vh;
+    display : flex;
+    flex-direction : column;
+    gap : 2vh;
+    justify-content : center;
+    padding-left : 1vw;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+    font-size : 17px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    cursor : pointer;
 }
