@@ -1,4 +1,4 @@
-import {React, useState} from 'react';
+import {React, useState, useEffect} from 'react';
 import axios from 'axios'
 import '../styles/comment.css';
 import user_icon from '../assets/user_icon.png';
@@ -18,6 +18,7 @@ const Comment = ({commentId, writer, content, date, boardId, setComDel}) => {
     const [reCommentContent, setReplyContent] = useState('')
     const [reCommentWriter, setReWriter] = useState(localStorage.getItem('nickname'))
     const [reComment, setReComment] = useState([])
+    const [reDel, setReDel] = useState(false)
 
     let arrow_style = {
         ...(commentOpen && {
@@ -51,12 +52,20 @@ const Comment = ({commentId, writer, content, date, boardId, setComDel}) => {
                 reCommentContent,
                 reCommentWriter
             })
+            getReply()
         } catch(error) {
             console.log("Error : ", error)
         }
 
         setReplyContent('')
         setAddReply(false)
+    }
+
+    if(reDel) {
+        getReply()
+        if(reComment.length-1 <= 0) setOpen(false)
+        
+        setReDel(false)
     }
 
     return (
@@ -139,9 +148,13 @@ const Comment = ({commentId, writer, content, date, boardId, setComDel}) => {
             {commentOpen && reComment.map((item) => (
                 <ReplyComment
                     key={item.id}
+                    boardId={boardId}
                     commentId={item.id}
+                    recommentsId={item.id}
                     writer={item.reCommentWriter}
                     content={item.reCommentContent}
+                    date={item.reCommentDate}
+                    setReDel={setReDel}
                 />
             ))}
         </div>
