@@ -6,7 +6,7 @@ import CodeNumber from '../components/CodeNumber';
 import '../styles/login.css';
 
 const FindPWPage = () => {
-    const server = process.env.VITE_SERVER_ADDRESS
+    const server = import.meta.env.VITE_SERVER_ADDRESS
     const [email, setEmail] = useState('')
     const [nickname, setNickname] = useState('')
     const [input, setInput] = useState(false);

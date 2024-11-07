@@ -3,7 +3,7 @@ import Post from './Post'
 import axios from 'axios'
 
 const Posts = ({searchValue}) => {
-    const server = process.env.VITE_SERVER_ADDRESS
+    const server = import.meta.env.VITE_SERVER_ADDRESS
     const [posts, setPosts] = useState([])
 
     useEffect(() => {

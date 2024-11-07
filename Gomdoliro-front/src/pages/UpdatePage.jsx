@@ -5,7 +5,7 @@ import Update from '../components/Update'
 import Write_underbar from '../components/Write_underbar'
 
 const UpdatePage = () => {
-    const server = process.env.VITE_SERVER_ADDRESS
+    const server = import.meta.env.VITE_SERVER_ADDRESS
     const nav = useNavigate()
     const [title, setUpdate_title] = useState('')
     const [content, setUpdate_content] = useState('')

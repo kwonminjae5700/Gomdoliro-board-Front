@@ -10,7 +10,7 @@ import Modal from '../components/Modal'
 import ReplyComment from '../components/ReplyComment'
 
 const Comment = ({commentId, writer, content, date, boardId, setComDel}) => {
-    const server = process.env.VITE_SERVER_ADDRESS
+    const server = import.meta.env.VITE_SERVER_ADDRESS
     const [addReply, setAddReply] = useState(false)
     const [buttonDel, setButtonDel] = useState(false)
     const [modalOpen, setModal] = useState(false)

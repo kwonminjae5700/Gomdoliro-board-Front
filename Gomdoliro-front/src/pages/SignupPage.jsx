@@ -4,7 +4,7 @@ import axios from 'axios'
 import '../styles/login.css'
 
 const SignupPage = () => {
-    const server = process.env.VITE_SERVER_ADDRESS
+    const server = import.meta.env.VITE_SERVER_ADDRESS
     const [sign, setSign] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
