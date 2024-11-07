@@ -6,12 +6,10 @@ const CodeNumber = ({ email, setCodeCnt, send, setButtonDo, setPasswordPage }) =
     const server = import.meta.env.VITE_SERVER_ADDRESS;
     const [codeArrary, setCode] = useState(["", "", "", "", "", ""])
     const inputs = useRef([])
-    const [canSend, setCanSend] = useState(false)
 
     useEffect(() => {
         if(send) {
-            setPasswordPage(true)
-            setButtonDo('완료')
+            sendCode()
         }
     }, [send])
 
@@ -25,7 +23,13 @@ const CodeNumber = ({ email, setCodeCnt, send, setButtonDo, setPasswordPage }) =
                 code
             })
 
-            console.log(response.data);
+            if(response.data.success) {
+                setPasswordPage(true)
+                setButtonDo('완료')
+            } else {
+                alert("인증번호가 옳지 않습니다.")
+                setCode(["", "", "", "", "", ""])
+            }
         } catch(error) {
             console.error("Error : ", error)
         }
@@ -43,10 +47,8 @@ const CodeNumber = ({ email, setCodeCnt, send, setButtonDo, setPasswordPage }) =
 
             if(newCode.every((char) => char !== "")) {
                 setCodeCnt(true)
-                setCanSend(true)
             } else {
                 setCodeCnt(false)
-                setCanSend(false)
             }
         }
     }
