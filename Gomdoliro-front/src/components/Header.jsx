@@ -35,6 +35,7 @@ const Header = ({search_Header, setSearch_Header}) => {
                     <span>내 게시글</span>
                     <span>임시저장된 글</span>
                     <span onClick={() => {
+                        alert("로그아웃 되었습니다.")
                         localStorage.clear()
                         nav("/")
                     }}>로그아웃</span>
