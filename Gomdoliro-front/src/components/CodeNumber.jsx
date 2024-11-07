@@ -3,7 +3,7 @@ import axios from 'axios';
 import '../styles/codenumber.css';
 
 const CodeNumber = ({ email, setCodeCnt, send, setButtonDo, setPasswordPage }) => {
-    const server = import.meta.env.VITE_SERVER_ADDRESS;
+    const server = process.env.VITE_SERVER_ADDRESS
     const [codeArrary, setCode] = useState(["", "", "", "", "", ""])
     const inputs = useRef([])
 

@@ -5,7 +5,7 @@ import Write from '../components/Write'
 import Write_underbar from '../components/Write_underbar'
 
 const WritePage = () => {
-    const server = import.meta.env.VITE_SERVER_ADDRESS
+    const server = process.env.VITE_SERVER_ADDRESS
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
     const [writer, setWriter] = useState(localStorage.getItem('nickname'))

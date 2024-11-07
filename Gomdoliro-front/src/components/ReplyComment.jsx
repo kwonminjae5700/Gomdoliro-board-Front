@@ -7,7 +7,7 @@ import Modal from '../components/Modal';
 import CommentButton from '../components/CommentButton'
 
 const ReplyComment = ({boardId, commentId, recommentsId, writer, content, date, setReDel}) => {
-    const server = import.meta.env.VITE_SERVER_ADDRESS
+    const server = process.env.VITE_SERVER_ADDRESS
     const [buttonDel, setButtonDel] = useState(false)
     const [modalOpen, setModal] = useState(false)
 

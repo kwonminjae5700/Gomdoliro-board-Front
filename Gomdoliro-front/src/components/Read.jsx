@@ -8,7 +8,7 @@ import CommentBox from './CommentBox'
 import '../styles/read.css'
 
 const Read = () => {
-    const server = import.meta.env.VITE_SERVER_ADDRESS
+    const server = process.env.VITE_SERVER_ADDRESS
     const [post, setPost] = useState(null)
     const [count, setCount] = useState(0)
     const [del_post, setDel_post] = useState(false)

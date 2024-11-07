@@ -4,7 +4,7 @@ import axios from 'axios'
 import '../styles/login.css'
 
 const LoginPage = () => {
-    const server = import.meta.env.VITE_SERVER_ADDRESS
+    const server = process.env.VITE_SERVER_ADDRESS
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const nav = useNavigate()
