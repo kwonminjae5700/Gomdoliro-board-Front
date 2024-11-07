@@ -17,8 +17,10 @@ const AppContent = () => {
     const hideHeader = location.pathname === '/' || location.pathname === '/signup' || location.pathname === '/findpw'
 
     useEffect(() => {
-        if(localStorage.getItem('nickname') === null) nav('/')
-    })
+        if(localStorage.getItem('nickname') === null && location.pathname !== '/findpw' && location.pathname !== '/signup') {
+            nav('/')
+        }
+    }, [location.pathname, nav])
 
     return (
         <>
