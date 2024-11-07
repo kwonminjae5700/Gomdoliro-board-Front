@@ -141,7 +141,7 @@ const SignupPage = () => {
                 )}
                 <h3 onClick={() => {
                     nav("/")
-                }}>로그인하기</h3>
+                }} style={{color : '#1F8BFF'}}>로그인하기</h3>
             </main>
         </div>
     )
